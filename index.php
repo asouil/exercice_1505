@@ -30,11 +30,12 @@ function verifSession($mail){
 					$destinataire='contact@apprendre.co';
 					$sujet="test de ok";
 					$message="test effectué avec succès";
-					sendmail($destinataire, $sujet, $message);
+					//sendmail($destinataire, $sujet, $message);
 				return 'envoyé';
 				}
 			}
 		}
+	echo("rafraîchir pour votre surprise");
 	return "isok";
 	}			
 
@@ -42,10 +43,22 @@ function verifSession($mail){
 
 if(empty($_SESSION)){
 	$_SESSION['mail']='test';
-	var_dump($_SESSION);
+
+	//var_dump($_SESSION);
 }
 if(!empty($_SESSION)){
 	$_SESSION['mail'] = verifSession($_SESSION['mail']);
-	var_dump($_SESSION);
+	//var_dump($_SESSION);
 }
+
+function token($taille, $chaine='azertyouiopqsdgfhjklm0123456789'){
+	$nblettres=strlen($chaine)-1;
+	$code=' ';
+	for($i=0; $i<$taille; $i++){
+		$pos = mt_rand(0, $nblettres);
+		$car = $chaine[$pos];
+		$code.= $car;
+	}
+}
+
 ?>
