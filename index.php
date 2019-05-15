@@ -30,8 +30,9 @@ function verifSession($mail){
 					$destinataire='contact@apprendre.co';
 					$sujet="test de ok";
 					$message="test effectué avec succès";
+					echo $message;
 					//sendmail($destinataire, $sujet, $message);
-				return 'envoyé';
+				return 'false';
 				}
 			}
 		}
@@ -59,6 +60,7 @@ function token($taille, $chaine='azertyouiopqsdgfhjklm0123456789'){
 		$car = $chaine[$pos];
 		$code.= $car;
 	}
+	return $code;
 }
 
 ?>
